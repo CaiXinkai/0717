@@ -87,25 +87,21 @@
 }
 
 
-
-
-/* ✅ 双列模块布局（标题 + 卡片一起并排） */
+/* 两列并排布局 */
 .research-edu {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   gap: 20px;
-  flex-wrap: nowrap;    /* PC 端强制并排 */
+  align-items: flex-start;
+  flex-wrap: wrap;     /* 大屏两列，小屏自动竖排 */
 }
 
-/* 每列占 50% */
+/* 每个模块（Research / Education）占一列 */
 .block {
-  width: 50%;
-  min-width: 300px;
-  box-sizing: border-box;
+  flex: 1;
+  min-width: 320px;     /* 控制最小宽度，防止挤爆 */
 }
 
-/* 卡片样式（保持原来的一致） */
+/* 盒子样式保持不变 */
 .research-box, .edu-box {
   background: var(--card);
   border-radius: var(--radius);
@@ -113,30 +109,9 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* 标题与卡片的间距 */
+/* 标题放盒子外面用 h2 */
 .block h2 {
-  margin-bottom: 12px;
-}
-
-/* Research Interests 列表样式（与你原版一致） */
-.research-box ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* Education 内部结构保持一致 */
-.edu-entry {
-  margin-bottom: 14px;
-}
-
-.edu-entry img {
-  width: 28px;
-  height: auto;
-  margin-right: 8px;
-  vertical-align: middle;
-  flex-shrink: 0; /* 防止撑宽 */
+  margin: 0 0 12px 0;
 }
 
 
@@ -247,6 +222,7 @@
 .about-photo img:hover {
   transform: scale(1.05);
 }
+
 
 
 
