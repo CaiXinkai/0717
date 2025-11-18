@@ -89,21 +89,33 @@
 
 
 
-    /* ✅ 双列布局：Research Interests + Education */
-    .research-edu {
-      display: flex;
-      gap: 20px;
-      align-items: stretch;
-      flex-wrap: wrap;
-    }
-    .research-box, .edu-box {
-      flex: 1;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      min-width: 300px;
-    }
+/* ✅ 双列模块布局（标题 + 卡片一起并排） */
+.research-edu {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* 每个模块（标题 + box）占一列 */
+.block {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* 依然保持你原来的 card 样式 */
+.research-box, .edu-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* h2 标题与卡片保持距离 */
+.block h2 {
+  margin: 0 0 12px 0;
+}
+
 
     /* ✅ Research Interests 样式 */
     #research ul {
@@ -211,6 +223,7 @@
 .about-photo img:hover {
   transform: scale(1.05);
 }
+
 
 
 
