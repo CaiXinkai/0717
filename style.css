@@ -331,6 +331,31 @@ section[id], h2[id] {
 }
 
 
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;              /* 竖线靠左 */
+    transform: none;         /* 移除水平位移 */
+  }
+
+  .timeline-dot {
+    left: 20px !important;   /* 圆点也靠左 */
+    transform: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    margin-left: 40px;
+    margin-right: 0;
+  }
+}
+
 
 
 
