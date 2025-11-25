@@ -310,6 +310,21 @@ section[id], h2[id] {
   .timeline-dot { left: 20px !important; transform: none; }
 }
 
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: flex;              /* 横向排列 */
+  align-items: center;        /* 垂直居中 */
+  gap: 6px;                   /* 日期和图片之间的间距 */
+}
+
+.date-img {
+  width: 18px;                /* 自行调整 */
+  height: 18px;
+  object-fit: contain;        /* 防止图片变形 */
+  display: block;
+}
+
 
 
 
