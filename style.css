@@ -229,7 +229,6 @@ section[id], h2[id] {
 }
 
 /* Timeline 容器 */
-/* 时间轴容器 */
 .timeline-container {
   position: relative;
   max-width: 800px;
@@ -251,7 +250,7 @@ section[id], h2[id] {
   z-index: 0;
 }
 
-/* 每个事件 */
+/* 事件内容框 */
 .timeline-item {
   position: relative;
   width: 50%;
@@ -259,15 +258,12 @@ section[id], h2[id] {
   box-sizing: border-box;
 }
 
-/* 左右交错 */
 .timeline-item.left { left: 0; text-align: right; }
 .timeline-item.right { left: 50%; text-align: left; }
 
-/* 内容框靠近中线 */
 .timeline-item.left .timeline-content { margin-right: 60px; }
 .timeline-item.right .timeline-content { margin-left: 60px; }
 
-/* 时间轴内容框 */
 .timeline-content {
   background-color: #ffffff;
   padding: 16px 20px;
@@ -279,19 +275,14 @@ section[id], h2[id] {
   max-width: 90%;
 }
 
-.timeline-date {
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: var(--accent);
-}
-
+.timeline-date { font-weight: bold; margin-bottom: 8px; color: var(--accent); }
 .timeline-content h3 { margin: 0 0 5px 0; }
 .timeline-content p { margin: 0; }
 
 /* 独立圆点 */
 .timeline-dot {
   position: absolute;
-  left: 50%;
+  left: 50%;                 /* 固定 X 轴在中线 */
   transform: translateX(-50%);
   width: 16px;
   height: 16px;
@@ -316,9 +307,8 @@ section[id], h2[id] {
     margin-right: 0;
   }
 
-  .timeline-dot { left: 20px !important; }
+  .timeline-dot { left: 20px !important; transform: none; }
 }
-
 
 
 
