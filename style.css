@@ -244,17 +244,17 @@ section[id], h2[id] {
   transform: translateX(-50%);
   width: 4px;
   height: 100%;
-  background-color: var(--muted);  /* 时间轴颜色 */
+  background-color: var(--muted);
   border-radius: 2px;
   z-index: 0;
 }
 
-/* 每个时间点 */
+/* 每个时间点占一行 */
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 20px 40px;
   box-sizing: border-box;
+  margin-bottom: 60px; /* 每个时间点间距 */
 }
 
 /* 左右交错 */
@@ -270,38 +270,37 @@ section[id], h2[id] {
 
 /* 左右内容靠近中线 */
 .timeline-item.left .timeline-content {
-  margin-right: 40px;
+  margin-right: 60px; /* 调整到中线 */
 }
 
 .timeline-item.right .timeline-content {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
-/* 圆点 */
-.timeline-item::before {
+/* 圆点 - 相对于 timeline-container */
+.timeline-item::after {
   content: '';
   position: absolute;
-  top: 50%;                  /* 精确垂直居中 */
-  left: 50%;                 /* 水平居中 */
-  transform: translate(-50%, -50%);
+  top: 20px; /* 从父容器顶部偏移，可根据卡片高度调整 */
+  left: 50%;
+  transform: translateX(-50%);
   width: 16px;
   height: 16px;
-  background-color: #ffffff;  /* 白色圆点 */
+  background-color: #ffffff;
   border: 4px solid var(--accent);
   border-radius: 50%;
-  z-index: 10;                /* 圆点在上方 */
+  z-index: 10;
 }
 
-/* 时间轴内容框 */
+/* 内容框 */
 .timeline-content {
-  background-color: #ffffff;  /* 白色方块 */
+  background-color: #ffffff;
   padding: 16px 20px;
   border-radius: var(--radius);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  display: block;             /* 避免 inline-block 导致圆点偏移 */
-  max-width: 90%;
+  display: block;
   position: relative;
-  z-index: 1;                 /* 低于圆点 */
+  z-index: 1;
 }
 
 .timeline-date {
@@ -317,7 +316,6 @@ section[id], h2[id] {
 .timeline-content p {
   margin: 0;
 }
-
 
 
 
