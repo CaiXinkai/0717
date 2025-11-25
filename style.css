@@ -228,14 +228,37 @@ section[id], h2[id] {
   scroll-margin-top: 100px;
 }
 
-/* ======================= Timeline 样式 ======================= */
+/* Timeline 容器 */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* 中线 */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: var(--muted);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+/* 时间点 */
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 20px 40px;
+  margin-bottom: 40px;
   box-sizing: border-box;
 }
 
+/* 左右交错 */
 .timeline-item.left {
   left: 0;
   text-align: right;
@@ -246,19 +269,20 @@ section[id], h2[id] {
   text-align: left;
 }
 
+/* 内容靠近中线 */
 .timeline-item.left .timeline-content {
-  margin-right: 40px;
+  margin-right: 60px;
 }
 
 .timeline-item.right .timeline-content {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
-/* 圆点，使用固定 top（原来的版本） */
+/* 圆点 */
 .timeline-item::before {
   content: '';
   position: absolute;
-  top: 30px;              /* 保持和最早版本一致 */
+  top: 20px;           /* 调整圆点垂直位置，可微调 */
   left: 50%;
   transform: translateX(-50%);
   width: 16px;
@@ -269,18 +293,29 @@ section[id], h2[id] {
   z-index: 10;
 }
 
-/* 白底 + 阴影 */
+/* 时间轴内容框 */
 .timeline-content {
   background-color: #ffffff;
-  padding: 12px 16px;
-  border-radius: 8px;
-  display: inline-block;     /* 保留最早成功的布局 */
-  max-width: 90%;
+  padding: 16px 20px;
+  border-radius: var(--radius);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: inline-block;  /* 保持 inline-block，圆点对齐 */
   position: relative;
   z-index: 1;
+  max-width: 90%;
 }
 
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
 
+.timeline-content h3 {
+  margin: 0 0 5px 0;
+}
 
+.timeline-content p {
+  margin: 0;
+}
 
